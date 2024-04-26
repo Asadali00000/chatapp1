@@ -7,7 +7,7 @@ import bodyParser from 'body-parser'
 import authRoutes from './Routes/authRoutes.js'
 import userRoutes from './Routes/userRoutes.js'
 import messageRoutes from './Routes/messageRoutes.js'
-import connectToMondoDB from '../DB/connecttomongodb.js'
+import connectToMondoDB from '../DB/connectToMongoDB.js'
 import { app, server } from './socket/socket.js'
 dotenv.config()
 
