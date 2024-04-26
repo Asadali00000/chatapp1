@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
 import useListenMessages from "../../hooks/useListenMessages";
 
 function MessageList() {
-  // useListenMessages();
+  useListenMessages();
   const allMessages = useRecoilValue(allMesssagesAtom);
   const { loading } = useGetMessages(); 
   const scrollRef = useRef();
