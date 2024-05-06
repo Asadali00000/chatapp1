@@ -1,31 +1,21 @@
 
-import { IoSearchSharp } from "react-icons/io5";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { ConversationListAtom, isSelectedConversationAtom, searchAtom } from "../../context/atom/Atom";
 import toast from "react-hot-toast";
-import useGetConversations from "../../hooks/useGetConversations";
+import useSearchFriend from "../../hooks/useSearchFriend";
+import {searchAtom } from "../../context/atom/Atom";
+import { IoSearchSharp } from "react-icons/io5";
+import { RxCross1 } from "react-icons/rx";
 function SearchBar() {
-   
+     useSearchFriend();
     const setSearch=useSetRecoilState(searchAtom);
     const search=useRecoilValue(searchAtom);
-    const conversationListValue=useRecoilValue(ConversationListAtom);
-    const setSelectedConversation=useSetRecoilState(isSelectedConversationAtom);
-  
-    function displayUser (e) {
-         e.preventDefault();
-         if(!search)return;
-         if(search.length<3){
-             return toast.error("Search term  must be atleast 3 charachter long");
-            }
-        const findUser=conversationListValue.find((c)=>c.fullName.toLowerCase().includes(search.toLowerCase()));
-        if(findUser){
-            setSelectedConversation(findUser);
-            setSearch("");
-        }else{
-            toast.error("NO such user found");
-        }
-    }
+      
+    const displayUser=(e)=>{
+        e.preventDefault();
+        setSearch(""); 
 
+    }
+  
 
 
     return (
@@ -36,10 +26,15 @@ function SearchBar() {
         onChange={(e) => setSearch( e.target.value )}
 
             />
-            <button type="submit" className="btn btn-circle bg-sky-500 text-white">
+            { !search.trim().length?
+           <button type="submit" className="btn btn-circle bg-sky-500 text-white">
                 <IoSearchSharp className='w-6 h-6 outline-none' />
             </button>
-
+            :
+           <button type="submit" className="btn btn-circle bg-sky-500 text-white">
+                <RxCross1 className='w-6 h-6 outline-none' />
+            </button>
+           }
         </form>
     )
 }

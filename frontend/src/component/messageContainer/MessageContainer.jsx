@@ -3,7 +3,7 @@ import Conversation from "../sidebar/Conversation"
 import MessageInput from "./MessageInput"
 import MessageList from "./MessageList"
 import { TiMessages } from "react-icons/ti";
-import { authAtom, isSelectedConversationAtom } from "../../context/atom/Atom";
+import { authAtom, isSelectedConversationAtom} from "../../context/atom/Atom";
 import { getRandomEmoji } from "../../utils/emojis";
 import { useEffect } from "react";
 
@@ -11,7 +11,9 @@ import { useEffect } from "react";
 function MessageContainer() {
     const isSelectedConversation=useRecoilValue(isSelectedConversationAtom);
     const setSelectedConversation=useSetRecoilState(isSelectedConversationAtom);
+
     const noChatSelected=!isSelectedConversation;
+      
     
     useEffect(()=>{
         

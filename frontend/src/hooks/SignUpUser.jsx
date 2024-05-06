@@ -51,15 +51,26 @@ function validateInputs({ fullName, username, password, confirmPassword, gender 
         return false;
     }
 
-    if (password !== confirmPassword) {
-        toast.error("Passwords do not match");
-        return false;
-    }
-
     if (password.length < 6) {
         toast.error("Password must be at least 6 characters");
         return false;
     }
+    if (password !== confirmPassword) {
+        toast.error("Passwords do not match");
+        return false;
+    }
+    
+    if(username.length<3){
+        toast.error("Username must be atleast 3 charachters");
+        return false;
+
+    }
+    if(fullName.length<3){
+        toast.error("FullName must be atleast 3 charachters");
+        return false;
+
+    }
+
 
     return true;
 }

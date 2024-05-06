@@ -1,6 +1,6 @@
 import { useRecoilValue } from "recoil"
 import Messages from "./Messages"
-import { allMesssagesAtom, isSelectedConversationAtom } from "../../context/atom/Atom"
+import { allMesssagesAtom} from "../../context/atom/Atom"
 import useGetMessages from "../../hooks/useGetMessages";
 import MessageSkeleton from "../skeletons/MessageSkeleton";
 import { useEffect, useRef } from "react";

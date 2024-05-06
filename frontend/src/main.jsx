@@ -5,6 +5,7 @@ import './index.css'
 import {BrowserRouter} from 'react-router-dom'
 import { RecoilRoot } from 'recoil'
 import { SocketContextProvider } from './context/atom/socketState.jsx'
+import { Toaster } from 'react-hot-toast'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
  <React.StrictMode>
@@ -15,6 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 
     <App />
+    <Toaster/>
     </SocketContextProvider>
   </RecoilRoot>
   </BrowserRouter>

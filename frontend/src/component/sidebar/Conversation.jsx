@@ -4,7 +4,7 @@ import { useSocketContext } from "../../context/atom/socketState";
 
 
 function Conversation({conversation,lastIdx,emoji}) {
-   
+    
     const [isSelectedConversation,setSelectedConversation]=useRecoilState(isSelectedConversationAtom);
       const  {onlineUsers}=useSocketContext();
     const  isSelected=isSelectedConversation?._id==conversation._id;
@@ -16,7 +16,7 @@ function Conversation({conversation,lastIdx,emoji}) {
         ${isSelected?"bg-sky-500":""  } `
         
         }
-        onClick={()=>setSelectedConversation(conversation)}
+        onClick={()=>setSelectedConversation(conversation)}   
         >
                 <div className={`avatar ${isonline?"online":"" }`}>
                     <div className='w-12 rounded-full'>

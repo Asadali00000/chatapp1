@@ -10,7 +10,6 @@ import { authAtom } from "./context/atom/Atom";
 // import { SocketAtomInitialise } from "./context/atom/socketAtom";
 export default function App() {
   const  userExist=useRecoilValue(authAtom);
-  console.log(userExist);
 
 
   
